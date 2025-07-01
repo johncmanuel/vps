@@ -1,4 +1,4 @@
-name: "john-vps"
+name: john-vps
 
 include:
   - path: "./proxy/docker-compose.yml"
