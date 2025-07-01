@@ -10,7 +10,7 @@
     <div class="container">
         <h1>john's vps</h1>
         <ul class="app-list">
-            {{range .Containers}}
+            {{range .}}
                 {{/* list applications with VIRTUAL_HOST */}}
                 {{if .Env.VIRTUAL_HOST}}
                     <li>
