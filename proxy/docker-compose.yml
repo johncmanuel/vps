@@ -28,6 +28,7 @@ services:
     #   - proxy-net
     environment:
       - "DEFAULT_EMAIL=${LETS_ENCRYPT_EMAIL}"
+      - NGINX_PROXY_CONTAINER=nginx-proxy
     depends_on:
       - nginx-proxy
 
