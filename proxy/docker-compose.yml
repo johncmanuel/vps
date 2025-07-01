@@ -11,8 +11,8 @@ services:
       - certs:/etc/nginx/certs
       - html:/usr/share/nginx/html
       - vhost:/etc/nginx/vhost.d
-    networks:
-      - proxy-net
+    # networks:
+    #   - proxy-net
 
   acme-companion:
     image: nginxproxy/acme-companion
