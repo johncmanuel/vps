@@ -11,8 +11,6 @@ services:
       - certs:/etc/nginx/certs
       - html:/usr/share/nginx/html
       - vhost:/etc/nginx/vhost.d
-    # networks:
-    #   - proxy-net
 
   acme-companion:
     image: nginxproxy/acme-companion
@@ -24,8 +22,6 @@ services:
       - html:/usr/share/nginx/html
       - vhost:/etc/nginx/vhost.d
       - acme:/etc/acme.sh
-    # networks:
-    #   - proxy-net
     environment:
       - "DEFAULT_EMAIL=${LETS_ENCRYPT_EMAIL}"
       - NGINX_PROXY_CONTAINER=nginx-proxy
@@ -37,6 +33,3 @@ volumes:
   html:
   vhost:
   acme:
-# networks:
-#   proxy-net:
-#     name: proxy-net
