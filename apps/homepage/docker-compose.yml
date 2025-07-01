@@ -1,9 +1,9 @@
 services:
   # serves the generated HTML file that homepage-gen made
-  homepage:
+  homepage-html:
     image: nginx:1.27-alpine
     restart: unless-stopped
-    container_name: homepage
+    container_name: homepage-html
     volumes:
       - ./public:/usr/share/nginx/html:ro
     environment:
@@ -15,7 +15,7 @@ services:
     image: docker-gen/docker-gen
     restart: unless-stopped
     container_name: homepage-gen
-    command: -watch -notify-sighup homepage /app/index.html.tmpl /app/www/index.html
+    command: -watch -notify-sighup homepage-html /app/index.html.tmpl /app/www/index.html
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./index.html.tmpl:/app/index.html.tmpl:ro
