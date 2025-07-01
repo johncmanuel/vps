@@ -1,0 +1,20 @@
+services:
+  chatpardy:
+    image: ghcr.io/johncmanuel/chatpardy
+    restart: unless-stopped
+    container_name: chatpardy
+    volumes:
+      - data:/app/Database
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:90
+      - VIRTUAL_HOST=chtprdy.${MAIN_DOMAIN}
+      - LETSENCRYPT_HOST=chtprdy.${MAIN_DOMAIN}
+    ports:
+      - "9000:90"
+
+volumes:
+  data:
+# networks:
+#   proxy-net:
+#     external: true
