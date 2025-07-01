@@ -1,0 +1,9 @@
+services:
+  codered-server:
+    image: ghcr.io/johncmanuel/codered:latest
+    restart: unless-stopped
+    container_name: codered-server
+    environment:
+      - VIRTUAL_HOST=cr.${MAIN_DOMAIN}
+      - LETSENCRYPT_HOST=cr.${MAIN_DOMAIN}
+      - VIRTUAL_PORT=2567
