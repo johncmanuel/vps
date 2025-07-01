@@ -5,8 +5,7 @@ services:
     restart: unless-stopped
     container_name: homepage
     volumes:
-      - web-root:/usr/share/nginx/html:ro
-      - ./styles.css:/usr/share/nginx/html/style.css:ro
+      - ./public:/usr/share/nginx/html:ro
     environment:
       - VIRTUAL_HOST=vps.${MAIN_DOMAIN}
       - LETSENCRYPT_HOST=vps.${MAIN_DOMAIN}
@@ -20,7 +19,4 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./index.html.tmpl:/app/index.html.tmpl:ro
-      - web-root:/app/www
-
-volumes:
-  web-root:
+      - ./public:/app/www
