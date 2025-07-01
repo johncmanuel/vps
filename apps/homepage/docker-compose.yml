@@ -12,7 +12,7 @@ services:
 
   # create the index.html file
   homepage-gen:
-    image: nginx-proxy/docker-gen
+    image: nginxproxy/docker-gen
     restart: unless-stopped
     container_name: homepage-gen
     command: -watch -notify-sighup homepage /app/index.html.tmpl /app/www/index.html
