@@ -8,10 +8,11 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:90
+      - ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
       - VIRTUAL_HOST=chtprdy.${MAIN_DOMAIN}
       - LETSENCRYPT_HOST=chtprdy.${MAIN_DOMAIN}
-    ports:
-      - "9000:90"
+    # ports:
+    #   - "9000:90"
 
 volumes:
   data:
