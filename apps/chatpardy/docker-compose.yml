@@ -10,6 +10,7 @@ services:
       - ASPNETCORE_URLS=http://+:90
       - ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
       - VIRTUAL_HOST=chtprdy.${MAIN_DOMAIN}
+      - VIRTUAL_PORT=90
       - LETSENCRYPT_HOST=chtprdy.${MAIN_DOMAIN}
     # ports:
     #   - "9000:90"
