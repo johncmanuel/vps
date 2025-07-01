@@ -3,4 +3,5 @@ name: john-vps
 include:
   - path: "./proxy/docker-compose.yml"
   - path: "./apps/chatpardy/docker-compose.yml"
+  - path: "./apps/homepage/docker-compose.yml"
   # - path: "./apps/codered/docker-compose.yml"

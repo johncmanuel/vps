@@ -1,0 +1,26 @@
+services:
+  # serves the generated HTML file that homepage-gen made
+  homepage:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    container_name: homepage
+    volumes:
+      - web-root:/usr/share/nginx/html:ro
+      - ./styles.css:/usr/share/nginx/html/style.css:ro
+    environment:
+      - VIRTUAL_HOST=vps.${MAIN_DOMAIN}
+      - LETSENCRYPT_HOST=vps.${MAIN_DOMAIN}
+
+  # create the index.html file
+  homepage-gen:
+    image: docker-gen/docker-gen
+    restart: unless-stopped
+    container_name: homepage-gen
+    command: -watch -notify-sighup homepage /app/index.html.tmpl /app/www/index.html
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./index.html.tmpl:/app/index.html.tmpl:ro
+      - web-root:/app/www
+
+volumes:
+  web-root:

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>john's vps</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>john's vps</h1>
+        <ul class="app-list">
+            {{range .Containers}}
+                {{/* list applications with VIRTUAL_HOST */}}
+                {{if .Env.VIRTUAL_HOST}}
+                    <li>
+                        <a href="https://{{.Env.VIRTUAL_HOST}}" target="_blank" rel="noopener noreferrer">
+                            {{(split .Env.VIRTUAL_HOST ".")._0 | title}}
+                        </a>
+                    </li>
+                {{end}}
+            {{end}}
+        </ul>
+    </div>
+</body>
+</html>
