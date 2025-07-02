@@ -15,7 +15,7 @@
                 {{if .Env.VIRTUAL_HOST}}
                     <li>
                         <a href="https://{{.Env.VIRTUAL_HOST}}" target="_blank" rel="noopener noreferrer">
-                            {{ .Name | trimPrefix "/" | title }}
+                            {{ .Name | trimPrefix "/" | lower }}
                         </a>
                     </li>
                 {{end}}
