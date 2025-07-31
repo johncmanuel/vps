@@ -5,3 +5,4 @@ include:
   - path: "./apps/chatpardy/docker-compose.yml"
   - path: "./apps/homepage/docker-compose.yml"
   - path: "./apps/codered/docker-compose.yml"
+  - path: "./apps/actualbudget/docker-compose.yml"
