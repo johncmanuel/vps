@@ -3,6 +3,8 @@ services:
     image: ghcr.io/johncmanuel/plucker:latest
     restart: unless-stopped
     container_name: plucker 
+    env_file:
+        - .env
     # environment:
     #   - VIRTUAL_HOST=cr.${MAIN_DOMAIN}
     #   - LETSENCRYPT_HOST=cr.${MAIN_DOMAIN}
