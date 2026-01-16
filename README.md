@@ -31,6 +31,8 @@ Docker-based deployments of some applications i made
    docker compose up -d
    ```
 
+If needed, you can start up a specific container (i.e `docker compose up -d <name of container>`)
+
 ## Requirements
 
 - Docker & Docker Compose v2+

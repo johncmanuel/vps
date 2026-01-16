@@ -1,0 +1,8 @@
+services:
+  deckards-server:
+    image: ghcr.io/johncmanuel/deckards-server:latest
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=deckards.${MAIN_DOMAIN}
+      - LETSENCRYPT_HOST=deckards.${MAIN_DOMAIN}
+      - VIRTUAL_PORT=2567
