@@ -6,3 +6,5 @@ services:
       - VIRTUAL_HOST=deckards.${MAIN_DOMAIN}
       - LETSENCRYPT_HOST=deckards.${MAIN_DOMAIN}
       - VIRTUAL_PORT=2567
+    env_file:
+      - .env
