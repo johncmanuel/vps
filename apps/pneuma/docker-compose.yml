@@ -1,0 +1,23 @@
+# demo version of pneuma
+
+services:
+  pneuma:
+    image: ghcr.io/johncmanuel/pneuma/server:latest
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=pneuma.${MAIN_DOMAIN}
+      - LETSENCRYPT_HOST=pneuma.${MAIN_DOMAIN}
+      - VIRTUAL_PORT=8989
+      # use nginx rate limiting instead
+      - PNEUMA_RATE_LIMITING_ENABLED=false
+      - PNEUMA_SERVER_HOST=0.0.0.0
+      - PNEUMA_DATA_DIR=/data
+      - PNEUMA_LIBRARY_WATCH_FOLDERS=/music
+    volumes:
+      - pneuma_data:/data
+      - ./music:/music:ro
+
+volumes:
+  pneuma_data:
+
+

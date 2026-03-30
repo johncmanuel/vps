@@ -7,4 +7,4 @@ include:
   - path: "./apps/codered/docker-compose.yml"
   - path: "./apps/plucker/docker-compose.yml"
   - path: "./apps/deckards/docker-compose.yml"
-
+  - path: "./apps/pneuma/docker-compose.yml"

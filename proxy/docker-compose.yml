@@ -10,7 +10,8 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - certs:/etc/nginx/certs
       - html:/usr/share/nginx/html
-      - vhost:/etc/nginx/vhost.d
+      - ./vhost.d:/etc/nginx/vhost.d
+      - ./conf.d:/etc/nginx/conf.d
     security_opt:
       - no-new-privileges:true
 
@@ -22,7 +23,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - certs:/etc/nginx/certs
       - html:/usr/share/nginx/html
-      - vhost:/etc/nginx/vhost.d
+      - ./vhost.d:/etc/nginx/vhost.d
       - acme:/etc/acme.sh
     environment:
       - "DEFAULT_EMAIL=${LETS_ENCRYPT_EMAIL}"
@@ -35,5 +36,4 @@ services:
 volumes:
   certs:
   html:
-  vhost:
   acme:
