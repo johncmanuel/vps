@@ -6,11 +6,6 @@ Docker-based deployments of some applications i made
 
 1. Automate deployments using GitHub tools
 
-## Included Applications
-
-- **Chatpardy:** ([ghcr.io/johncmanuel/chatpardy](https://github.com/johncmanuel/chatpardy)).
-- **Code Red:** ([ghcr.io/johncmanuel/codered](https://github.com/johncmanuel/codered))
-
 ## Usage
 
 1. **Clone the repository:**

@@ -1,0 +1,3 @@
+[submodule "apps/bordle/bordle"]
+	path = apps/bordle/bordle
+	url = https://github.com/johncmanuel/bordle.git
