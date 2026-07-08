@@ -43,7 +43,8 @@ services:
     environment:
       - VIRTUAL_HOST=bordle.${MAIN_DOMAIN}
       - LETSENCRYPT_HOST=bordle.${MAIN_DOMAIN}
-      - VIRTUAL_PORT=80
+      # The client Dockerfile serves via Caddy on port 8080
+      - VIRTUAL_PORT=8080
     depends_on:
       - bordle_server
 
