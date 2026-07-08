@@ -14,11 +14,7 @@ services:
       retries: 5
 
   bordle_server:
-    build:
-      context: ./bordle 
-      dockerfile: apps/server/Dockerfile
-      args:
-        CONFIGURATION: Release
+    image: ghcr.io/johncmanuel/bordle-server:latest
     container_name: bordle_server
     restart: always
     env_file:
@@ -31,11 +27,7 @@ services:
         condition: service_healthy
 
   bordle_client:
-    build:
-      context: ./bordle 
-      dockerfile: apps/client/Dockerfile
-      args:
-        - VITE_DISCORD_CLIENT_ID=${VITE_DISCORD_CLIENT_ID}
+    image: ghcr.io/johncmanuel/bordle-client:latest
     container_name: bordle_client
     restart: always
     env_file:
@@ -45,6 +37,7 @@ services:
       - LETSENCRYPT_HOST=bordle.${MAIN_DOMAIN}
       # The client Dockerfile serves via Caddy on port 8080
       - VIRTUAL_PORT=8080
+      - VITE_DISCORD_CLIENT_ID=${VITE_DISCORD_CLIENT_ID}
     depends_on:
       - bordle_server
 
