@@ -4,7 +4,7 @@ services:
     container_name: bordle_db
     restart: always
     env_file:
-      - ./apps/bordle/.env
+      - ./.env
     volumes:
       - bordle_db_data:/var/lib/postgresql/data
     healthcheck:
@@ -22,7 +22,7 @@ services:
     container_name: bordle_server
     restart: always
     env_file:
-      - ./apps/bordle/.env
+      - ./.env
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
