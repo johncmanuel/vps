@@ -39,7 +39,7 @@ services:
     container_name: bordle_client
     restart: always
     env_file:
-      - ./apps/bordle/.env
+      - ./.env
     environment:
       - VIRTUAL_HOST=bordle.${MAIN_DOMAIN}
       - LETSENCRYPT_HOST=bordle.${MAIN_DOMAIN}
